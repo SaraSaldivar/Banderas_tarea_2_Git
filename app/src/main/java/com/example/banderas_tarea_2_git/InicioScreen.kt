@@ -42,7 +42,15 @@ fun White(modifier: Modifier = Modifier) {
         )
     }
 }
-
+@Preview
+@Composable
+fun Enmedio(){
+    Box(
+        modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center
+    ){
+        White(modifier = Modifier.fillMaxWidth(0.9f))
+    }
+}
 
 
 
