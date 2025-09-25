@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,7 +21,6 @@ import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
 
 @Composable
 fun Blue(modifier: Modifier = Modifier){
@@ -42,13 +42,38 @@ fun White(modifier: Modifier = Modifier) {
         )
     }
 }
+
+@Composable
+fun BanderaInsanotaArg(modifier: Modifier= Modifier){
+Column (modifier = modifier.aspectRatio(3f/2f).fillMaxWidth()){
+    Blue(
+        modifier=modifier
+            .fillMaxWidth()
+            .weight(1f)
+    )
+    White(
+        modifier=modifier
+            .fillMaxWidth()
+            .weight(1f)
+    )
+    Blue(
+        modifier=modifier
+            .fillMaxWidth()
+            .weight(1f)
+    )
+
+}
+}
+
+
+
 @Preview
 @Composable
 fun Enmedio(){
     Box(
         modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center
     ){
-        White(modifier = Modifier.fillMaxWidth(0.9f))
+        BanderaInsanotaArg(modifier = Modifier.fillMaxWidth(0.9f))
     }
 }
 
