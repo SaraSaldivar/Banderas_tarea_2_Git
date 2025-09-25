@@ -30,10 +30,5 @@ fun White(modifier: Modifier = Modifier){
         modifier = modifier.background(Color.White).fillMaxWidth()
     )
 }
-@Composable
-fun Blue2(modifier: Modifier= Modifier){
-    Box(
-        modifier= modifier.background(Color.Blue).fillMaxWidth()
-    )
-}
+
 
