@@ -21,11 +21,11 @@ import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
+private val AzulArg= Color(0xFF6CACE4)
 @Composable
 fun Blue(modifier: Modifier = Modifier){
     Box(
-        modifier = modifier.background(Color.Blue).fillMaxWidth()
+        modifier = modifier.background(AzulArg).fillMaxWidth()
     )
 }
 @Composable
