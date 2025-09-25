@@ -69,7 +69,7 @@ Column (modifier = modifier.aspectRatio(3f/2f).fillMaxWidth()){
 
 @Preview
 @Composable
-fun Enmedio(){
+fun BanderaPreview(){
     Box(
         modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center
     ){
