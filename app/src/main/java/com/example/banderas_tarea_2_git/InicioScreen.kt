@@ -8,14 +8,18 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 
 
 @Composable
@@ -25,10 +29,20 @@ fun Blue(modifier: Modifier = Modifier){
     )
 }
 @Composable
-fun White(modifier: Modifier = Modifier){
+fun White(modifier: Modifier = Modifier) {
     Box(
-        modifier = modifier.background(Color.White).fillMaxWidth()
-    )
+        modifier = modifier.background(Color.White).fillMaxWidth(),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.argentinaaaa),
+            contentDescription = "Argentina escudo",
+            modifier = Modifier.size(100.dp),
+            contentScale = ContentScale.Fit
+        )
+    }
 }
+
+
 
 
