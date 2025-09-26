@@ -75,31 +75,31 @@ fun BanderaMexicoConstraint(){
 
 @Preview
 @Composable
-fun BanderaMexicoConstraintV(){
-    ConstraintLayout (Modifier.fillMaxSize()){
-        val(boxGreen, boxWhite, boxRed)=createRefs()
-        Box(modifier = Modifier.fillMaxHeight().background(VerdeRaaah).constrainAs(boxGreen){
+fun BanderaMexicoConstraintV() {
+    ConstraintLayout(Modifier.fillMaxSize()) {
+        val (boxGreen, boxWhite, boxRed) = createRefs()
+        Box(modifier = Modifier.fillMaxHeight().background(VerdeRaaah).constrainAs(boxGreen) {
             top.linkTo(parent.top)
             bottom.linkTo(parent.bottom)
             start.linkTo(parent.start)
             end.linkTo(boxWhite.start)
             width = Dimension.fillToConstraints
         })
-        Box(modifier = Modifier.fillMaxHeight().background(Color.White).constrainAs(boxWhite){
+        Box(modifier = Modifier.fillMaxHeight().background(Color.White).constrainAs(boxWhite) {
             top.linkTo(parent.top)
             bottom.linkTo(parent.bottom)
             start.linkTo(boxGreen.end)
             end.linkTo(boxRed.start)
             width = Dimension.fillToConstraints
-        }){
-            ConstraintLayout (modifier = Modifier.fillMaxSize()){
-                val (escudo)=createRefs()
+        }) {
+            ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+                val (escudo) = createRefs()
 
                 Image(
-                    painter = painterResource(id=R.drawable.escudo_mexico),
+                    painter = painterResource(id = R.drawable.escudo_mexico),
                     contentDescription = "escudo insanote",
                     modifier = Modifier.size(200.dp)
-                        .constrainAs(escudo){
+                        .constrainAs(escudo) {
                             top.linkTo(parent.top)
                             bottom.linkTo(parent.bottom)
                             start.linkTo(parent.start)
@@ -110,7 +110,7 @@ fun BanderaMexicoConstraintV(){
         }
 
 
-        Box(modifier = Modifier.fillMaxHeight().background(rojoPatriaraah).constrainAs(boxRed){
+        Box(modifier = Modifier.fillMaxHeight().background(rojoPatriaraah).constrainAs(boxRed) {
             top.linkTo(parent.top)
             bottom.linkTo(parent.bottom)
             start.linkTo(boxWhite.end)
