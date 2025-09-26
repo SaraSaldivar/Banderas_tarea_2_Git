@@ -1,6 +1,7 @@
 package com.example.banderas_tarea_2_git
 
 import android.R.attr.top
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,7 +11,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ChainStyle
@@ -35,7 +38,21 @@ fun BanderaMexicoConstraint(){
             start.linkTo(parent.start)
             end.linkTo(parent.end)
         }){
-            ConstraintLayout (modifier = Modifier){  }
+            ConstraintLayout (modifier = Modifier.fillMaxSize()){
+            val (escudo)=createRefs()
+
+                Image(
+                    painter = painterResource(id=R.drawable.escudo_mexico),
+                    contentDescription = "escudo insanote",
+                    modifier = Modifier.size(200.dp)
+                        .constrainAs(escudo){
+                            top.linkTo(parent.top)
+                            bottom.linkTo(parent.bottom)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                        }
+                )
+            }
         }
 
 
