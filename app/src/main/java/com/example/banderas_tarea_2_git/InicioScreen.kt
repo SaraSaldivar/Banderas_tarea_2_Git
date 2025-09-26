@@ -1,2 +1,121 @@
 package com.example.banderas_tarea_2_git
 
+
+import android.R.attr.top
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ChainStyle
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
+
+val ArgentinaChe = Color(0xFF6CACE4)
+
+@Preview
+@Composable
+fun BanderaArgConstraint(){
+    ConstraintLayout (Modifier.fillMaxSize()){
+        val(boxBlue, boxWhite, boxBlue2)=createRefs()
+        Box(modifier = Modifier.fillMaxWidth().background(ArgentinaChe).constrainAs(boxBlue){
+            top.linkTo(parent.top)
+            bottom.linkTo(boxWhite.top)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            height = Dimension.fillToConstraints
+        })
+        Box(modifier = Modifier.fillMaxWidth().background(Color.White).constrainAs(boxWhite){
+            top.linkTo(boxBlue.bottom)
+            bottom.linkTo(boxBlue2.top)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            height = Dimension.fillToConstraints
+        }){
+            ConstraintLayout (modifier = Modifier.fillMaxSize()){
+                val (escudo)=createRefs()
+
+                Image(
+                    painter = painterResource(id=R.drawable.solarg),
+                    contentDescription = "escudo insanote",
+                    modifier = Modifier.size(200.dp)
+                        .constrainAs(escudo){
+                            top.linkTo(parent.top)
+                            bottom.linkTo(parent.bottom)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                        }
+                )
+            }
+        }
+
+
+        Box(modifier = Modifier.fillMaxWidth().background(ArgentinaChe).constrainAs(boxBlue2){
+            top.linkTo(boxWhite.bottom)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            height = Dimension.fillToConstraints
+        })
+    }
+}
+
+
+
+@Preview
+@Composable
+fun BanderaMexicoConstraintV() {
+    ConstraintLayout(Modifier.fillMaxSize()) {
+        val (boxBlue, boxWhite, boxBlue2) = createRefs()
+        Box(modifier = Modifier.fillMaxHeight().background(ArgentinaChe).constrainAs(boxBlue) {
+            top.linkTo(parent.top)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(parent.start)
+            end.linkTo(boxWhite.start)
+            width = Dimension.fillToConstraints
+        })
+        Box(modifier = Modifier.fillMaxHeight().background(Color.White).constrainAs(boxWhite) {
+            top.linkTo(parent.top)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(boxBlue.end)
+            end.linkTo(boxBlue2.start)
+            width = Dimension.fillToConstraints
+        }) {
+            ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+                val (escudo) = createRefs()
+
+                Image(
+                    painter = painterResource(id = R.drawable.solarg),
+                    contentDescription = "escudo insanote",
+                    modifier = Modifier.size(200.dp)
+                        .constrainAs(escudo) {
+                            top.linkTo(parent.top)
+                            bottom.linkTo(parent.bottom)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                        }
+                )
+            }
+        }
+
+
+        Box(modifier = Modifier.fillMaxHeight().background(ArgentinaChe).constrainAs(boxBlue2) {
+            top.linkTo(parent.top)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(boxWhite.end)
+            end.linkTo(parent.end)
+            width = Dimension.fillToConstraints
+        })
+    }
+}
