@@ -4,6 +4,7 @@ import android.R.attr.top
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -66,6 +67,55 @@ fun BanderaMexicoConstraint(){
             start.linkTo(parent.start)
             end.linkTo(parent.end)
             height = Dimension.fillToConstraints
+        })
+    }
+}
+
+
+
+@Preview
+@Composable
+fun BanderaMexicoConstraintV(){
+    ConstraintLayout (Modifier.fillMaxSize()){
+        val(boxGreen, boxWhite, boxRed)=createRefs()
+        Box(modifier = Modifier.fillMaxHeight().background(VerdeRaaah).constrainAs(boxGreen){
+            top.linkTo(parent.top)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(parent.start)
+            end.linkTo(boxWhite.start)
+            width = Dimension.fillToConstraints
+        })
+        Box(modifier = Modifier.fillMaxHeight().background(Color.White).constrainAs(boxWhite){
+            top.linkTo(parent.top)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(boxGreen.end)
+            end.linkTo(boxRed.start)
+            width = Dimension.fillToConstraints
+        }){
+            ConstraintLayout (modifier = Modifier.fillMaxSize()){
+                val (escudo)=createRefs()
+
+                Image(
+                    painter = painterResource(id=R.drawable.escudo_mexico),
+                    contentDescription = "escudo insanote",
+                    modifier = Modifier.size(200.dp)
+                        .constrainAs(escudo){
+                            top.linkTo(parent.top)
+                            bottom.linkTo(parent.bottom)
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                        }
+                )
+            }
+        }
+
+
+        Box(modifier = Modifier.fillMaxHeight().background(rojoPatriaraah).constrainAs(boxRed){
+            top.linkTo(parent.top)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(boxWhite.end)
+            end.linkTo(parent.end)
+            width = Dimension.fillToConstraints
         })
     }
 }
